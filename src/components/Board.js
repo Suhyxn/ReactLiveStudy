@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { data } from '../constant/data'
 
-function Board() {
+function Board(props) {
+  const { category } = props
+  const [articles, setArticles] = useState(data.filter((element) => (element.category === category)))
+
   return (
     <>
-    <h3>{ data.title }</h3>
-    <p>{ data.content }</p>
+    {articles.map((element) => {
+      return (
+        <>
+        <h1>{element.title}</h1>
+        <p>{element.content}</p>
+        </>
+      )
+    })}
     </>
   )
 }

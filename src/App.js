@@ -1,10 +1,11 @@
-import Clock from './components/Clock'
+import Board from './components/Board'
 
 function App() {
   return (
     <div>
-      <Clock timezone='Asia/Seoul' newTz='Asia/Taipei'/>
-      <Clock timezone='Asia/Taipei' newTz='Asia/Seoul'/>
+      <Board category='영화'/>
+      <Board category='드라마'/>
+      <Board category='예능'/>
     </div>
   );
 }
