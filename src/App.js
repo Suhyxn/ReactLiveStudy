@@ -1,11 +1,9 @@
-import Board from './components/Board'
+import Loading from './components/Loading'
 
 function App() {
   return (
-    <div>
-      <Board category='영화'/>
-      <Board category='드라마'/>
-      <Board category='예능'/>
+    <div className='App'>
+      <Loading />
     </div>
   );
 }
