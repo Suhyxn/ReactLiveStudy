@@ -1,9 +1,10 @@
-import Loading from './components/Loading'
+import Timer from './components/Timer'
 
 function App() {
   return (
     <div className='App'>
-      <Loading />
+      <Timer s={60}/>
+      <Timer s={30}/>
     </div>
   );
 }
