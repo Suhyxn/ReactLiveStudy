@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import moment from 'moment-timezone'
 
-function Clock(props) {
-  const {timezone, newTz} = props
-  const [time, setTime] = useState(moment().tz(timezone).format('YYYY-MM-DD HH:mm:ss'))
+function Clock() {
+  const [time, setTime] = useState(moment().format('YYYY-MM-DD HH:mm:ss'))
 
-  const changeTz = (Tz) => {
-    setTime(moment().tz(Tz).format('YYYY-MM-DD HH:mm:ss'))
-  }
+  useEffect(() => {
+    setTimeout(() => {setTime(moment().format('YYYY-MM-DD HH:mm:ss'))}, 1000)
+  }, [time])
 
   return (
     <>
     <div>{ time }</div>
-    <button onClick={ () => changeTz(newTz) }>{newTz}로 바꾸기</button>
     </>
   )
 }
