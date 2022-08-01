@@ -1,9 +1,9 @@
-import Comp from './components/Comp'
+import Handlers from './components/Handlers'
 
 function App() {
   return (
     <div className='App'>
-      <Comp name='이름' />
+      <Handlers />
     </div>
   );
 }
