@@ -1,9 +1,9 @@
-import Clock from './components/Clock'
+import Comp from './components/Comp'
 
 function App() {
   return (
     <div className='App'>
-      <Clock />
+      <Comp name='이름' />
     </div>
   );
 }
