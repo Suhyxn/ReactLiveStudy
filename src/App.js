@@ -1,9 +1,9 @@
-import Handlers from './components/Handlers'
+import Login from './components/Login'
 
 function App() {
   return (
     <div className='App'>
-      <Handlers />
+      <Login />
     </div>
   );
 }
