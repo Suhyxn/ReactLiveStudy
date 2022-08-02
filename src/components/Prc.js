@@ -11,7 +11,7 @@ function Prc() {
                 <>
                 <h1>{time.tz}의 현재 시각</h1>
                 <h1>{moment().tz(time.tz).format('YYYY-MM-DD HH:mm:ss')}</h1>
-                <button>제거하기</button>
+                <button onClick={() => {setTimes(times.filter(timeElement => timeElement.id !== time.id))}}>제거하기</button>
                 </>
             )
         })}
