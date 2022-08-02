@@ -15,7 +15,7 @@ export const Button = styled.button`
 
   ${({ theme }) => theme.common.flexCenter}
 
-  background-color: ${({ theme }) => theme.palette.orange};
+  background-color: ${({ isClicked }) => (isClicked ? 'orange' : 'violet')};
   border-radius: 10px;
   color: white;
   width: 100px;
@@ -26,6 +26,7 @@ export const Button = styled.button`
     opacity: 0.5;
   }
   cursor: pointer;
+  font-family: 'BlackHanSans';
 
   animation-name: ${fadeIn};
   animation-duration: 1s;
