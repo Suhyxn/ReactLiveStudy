@@ -1,10 +1,13 @@
+import { ThemeProvider } from 'styled-components'
 import Button from './components/Button'
+import theme from './styles/theme'
 
 function App() {
   return (
     <div>
-      <Button size="large" color="red" />
-      <Button size="small" color="blue" />
+      <ThemeProvider theme={theme}>
+        <Button />
+      </ThemeProvider>
     </div>
   )
 }
