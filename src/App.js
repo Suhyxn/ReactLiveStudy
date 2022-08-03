@@ -1,5 +1,5 @@
 import { ThemeProvider } from 'styled-components'
-import Button from './components/Button'
+import TodoList from './components/TodoList'
 import theme from './styles/theme'
 import GlobalStyle from './styles/globalStyle'
 
@@ -8,7 +8,7 @@ function App() {
     <div>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Button />
+        <TodoList />
       </ThemeProvider>
     </div>
   )

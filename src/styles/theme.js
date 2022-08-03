@@ -1,6 +1,8 @@
 const palette = {
-  orange: '#FFA500',
-  main: '#asda00',
+  Navy: '#1C3879',
+  Blue: '#607EAA',
+  Beige: '#EAE3D2',
+  White: '#F9F5EB',
 }
 
 const common = {
@@ -8,6 +10,17 @@ const common = {
   display: flex;
   justify-content: center;
   align-items: center;
+  `,
+  flexAround: `
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  `,
+  flexColumnStart: `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   `,
 }
 
