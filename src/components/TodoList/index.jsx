@@ -1,32 +1,28 @@
-import React, { useRef, useState } from 'react'
+import React, { useReducer, useRef } from 'react'
 import TodoItem from '../TodoItem'
 import TodoAdd from '../TodoAdd'
 import * as S from './style'
+import { TodoReducer } from '../../reducers/todoReducer'
 
 function TodoList() {
-  const todoId = useRef(2)
-  const [todoData, setTodoData] = useState([
-    { id: '1', date: '2022-08-03', content: '강의하기', checked: false },
-  ])
+  const todoId = useRef(1)
+  const [todoData, dispatch] = useReducer(TodoReducer, [])
 
-  const todoRemoveHandler = (id) => {
-    setTodoData(todoData.filter((itemData) => itemData.id !== id))
+  const todoAddHandler = (userInput) => {
+    dispatch({ type: 'ADD', data: { ...userInput, id: todoId.current } })
+    todoId.current += 1
   }
-
+  const todoRemoveHandler = (id) => {
+    dispatch({ type: 'REMOVE', data: { id } })
+  }
   const todoCheckHandler = (id) => {
-    setTodoData(
-      todoData.map((itemData) =>
-        itemData.id === id
-          ? { ...itemData, checked: !itemData.checked }
-          : itemData,
-      ),
-    )
+    dispatch({ type: 'CHECK', data: { id } })
   }
 
   return (
     <S.TodoContainer>
       <S.TodoTitle>나만의 TodoList</S.TodoTitle>
-      <TodoAdd todoId={todoId} todoData={todoData} setTodoData={setTodoData} />
+      <TodoAdd todoAddHandler={todoAddHandler} />
       {todoData.map((itemData) => {
         return (
           <TodoItem

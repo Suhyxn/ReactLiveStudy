@@ -1,11 +1,14 @@
-import UserList from './components/UserList'
-import { UserProvider } from './contexts/UserContext'
+import { ThemeProvider } from 'styled-components'
+import TodoList from './components/TodoList'
+import theme from './styles/theme'
+import GlobalStyle from './styles/globalStyle'
 
 function App() {
   return (
-    <UserProvider>
-      <UserList />
-    </UserProvider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <TodoList />
+    </ThemeProvider>
   )
 }
 

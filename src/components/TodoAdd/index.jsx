@@ -1,25 +1,12 @@
 import React, { useState } from 'react'
 import * as S from './style'
 
-function TodoAdd({ todoId, todoData, setTodoData }) {
+function TodoAdd({ todoAddHandler }) {
   const [userInput, setUserInput] = useState({ date: '', content: '' })
 
   const userInputHandler = (e) => {
     const { name, value } = e.target
     setUserInput({ ...userInput, [name]: value })
-  }
-
-  const todoAddHandler = (userInput) => {
-    setTodoData([
-      ...todoData,
-      {
-        id: todoId.current,
-        date: userInput.date,
-        content: userInput.content,
-        checked: false,
-      },
-    ])
-    todoId.current += 1
   }
 
   return (
