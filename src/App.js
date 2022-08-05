@@ -1,15 +1,7 @@
-import { ThemeProvider } from 'styled-components'
-import TodoList from './components/TodoList'
-import theme from './styles/theme'
-import GlobalStyle from './styles/globalStyle'
+import Axiosprc from './components/Axiosprc'
 
 function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <TodoList />
-    </ThemeProvider>
-  )
+  return <Axiosprc />
 }
 
 export default App
