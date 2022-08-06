@@ -4,7 +4,7 @@ import axios from 'axios'
 function AxiosPrc() {
   const [posts, setPosts] = useState(null)
   const getPost = async () => {
-    const response = await axios.post(
+    const response = await axios.get(
       'https://jsonplaceholder.typicode.com/posts',
       { title: 'Title', body: 'Body', userId: 1 },
     )

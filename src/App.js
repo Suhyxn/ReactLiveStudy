@@ -1,7 +1,7 @@
-import Axiosprc from './components/Axiosprc'
+import Weather from './components/Weather'
 
 function App() {
-  return <Axiosprc />
+  return <Weather />
 }
 
 export default App
