@@ -6,8 +6,8 @@ function UserIndex() {
   return (
     <div>
       {userData.map((user) => (
-        <Link to={`/user/${user.id}`}>
-          <p>{user.title}</p>
+        <Link to={`/users/${user.id}`}>
+          <p>{user.name}</p>
         </Link>
       ))}
     </div>

@@ -3,6 +3,8 @@ import Posts from './components/Posts'
 import PostDetail from './components/Posts/PostDetail'
 import PostIndex from './components/Posts/PostIndex'
 import Users from './components/Users'
+import UserDetail from './components/Users/UserDetail'
+import UserIndex from './components/Users/UserIndex'
 
 function App() {
   return (
@@ -20,7 +22,10 @@ function App() {
           <Route index element={<PostIndex />} />
           <Route path=":postId" element={<PostDetail />} />
         </Route>
-        <Route path="users" element={<Users />}></Route>
+        <Route path="users" element={<Users />}>
+          <Route index element={<UserIndex />} />
+          <Route path=":userId" element={<UserDetail />} />
+        </Route>
         <Route path="*" element={<p>Not Found</p>} />
       </Routes>
     </div>

@@ -4,12 +4,12 @@ import { userData } from '../../../constants/userData'
 
 function UserDetail() {
   const params = useParams()
-  const user = userData.find((user) => user.id === parseInt(params.postId))
+  const user = userData.find((user) => user.id === parseInt(params.userId))
 
   return (
     <div>
-      <p>{user.title}</p>
-      <p>{user.body}</p>
+      <p>{user.name}</p>
+      <p>{user.email}</p>
     </div>
   )
 }
