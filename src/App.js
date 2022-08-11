@@ -1,17 +1,21 @@
-import { Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import Posts from './components/Posts'
 import PostDetail from './components/Posts/PostDetail'
 import PostIndex from './components/Posts/PostIndex'
 import Users from './components/Users'
 import UserDetail from './components/Users/UserDetail'
 import UserIndex from './components/Users/UserIndex'
+import Albums from './components/Albums'
+import AlbumList from './components/Albums/AlbumList'
+import Photos from './components/Albums/Photos'
+import PhotoList from './components/Albums/Photos/PhotoList'
+import PhotoDetail from './components/Albums/Photos/PhotoDetail'
+import Nav from './components/Nav'
 
 function App() {
   return (
-    <div>
-      <nav>
-        <Link to="posts">Posts</Link> |<Link to="users">Users</Link>
-      </nav>
+    <BrowserRouter>
+      <Nav />
       {/* Posts -> Posts 컴포넌트를 보여줘 */}
       {/* 5버전 -> / 라는 라우트, /posts 라는 라우트, 중첩적으로 요소가 표시됨 */}
       {/* exact */}
@@ -26,9 +30,16 @@ function App() {
           <Route index element={<UserIndex />} />
           <Route path=":userId" element={<UserDetail />} />
         </Route>
+        <Route path="albums" element={<Albums />}>
+          <Route index element={<AlbumList />} />
+          <Route path=":albumId" element={<Photos />}>
+            <Route index element={<PhotoList />} />
+            <Route path="photos/:photoId" element={<PhotoDetail />} />
+          </Route>
+        </Route>
         <Route path="*" element={<p>Not Found</p>} />
       </Routes>
-    </div>
+    </BrowserRouter>
   )
 }
 
