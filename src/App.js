@@ -1,5 +1,4 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
-import Posts from './components/Posts'
 import PostDetail from './components/Posts/PostDetail'
 import PostIndex from './components/Posts/PostIndex'
 import Users from './components/Users'
@@ -11,6 +10,9 @@ import Photos from './components/Albums/Photos'
 import PhotoList from './components/Albums/Photos/PhotoList'
 import PhotoDetail from './components/Albums/Photos/PhotoDetail'
 import Nav from './components/Nav'
+import { lazy, Suspense } from 'react'
+
+const Posts = lazy(() => import('./components/Posts'))
 
 function App() {
   return (
@@ -22,7 +24,14 @@ function App() {
       {/* 6버전 -> 주소가 정확히 일치해야만 요소가 표시되도록 */}
       {/* path 에다가 * 문자를 쓰면 지금 있는 path 일치하지 않는 모든 경우에 대해서 */}
       <Routes>
-        <Route path="posts" element={<Posts />}>
+        <Route
+          path="posts"
+          element={
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <Posts />
+            </Suspense>
+          }
+        >
           <Route index element={<PostIndex />} />
           <Route path=":postId" element={<PostDetail />} />
         </Route>
